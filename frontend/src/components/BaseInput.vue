@@ -1,5 +1,5 @@
 <template>
-    <div class="form-group"
+    <div class="form-group m-0"
          :class="[
        {'input-group': hasIcon},
        {'has-danger': error},
@@ -26,7 +26,6 @@
         </div>
         <slot v-bind="slotData">
             <input
-                    :inputType="type"
                     :value="value"
                     v-on="listeners"
                     v-bind="$attrs"
@@ -54,10 +53,6 @@ export default {
   inheritAttrs: false,
   name: "base-input",
   props: {
-    inputType:{
-      type:String,
-      description: "select input type"
-    },
     required: {
       type: Boolean,
       description: "Whether input is required (adds an asterix *)"

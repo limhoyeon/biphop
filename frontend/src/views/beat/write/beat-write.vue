@@ -26,7 +26,7 @@
               <h6 class="mt-4">특징 ( 3개 입력 )</h6>
               <div class="row">
                 <base-input
-                  class="col-lg-4 bg-secondary"
+                  class="col-lg-4 bg-secondary my-1"
                   style="box-shadow:0 0"
                   addon-left-icon="ni ni-tag"
                   alternative
@@ -34,7 +34,7 @@
                 >
                 </base-input>
                 <base-input
-                  class="col-lg-4 bg-secondary"
+                  class="col-lg-4 bg-secondary my-1"
                   style="box-shadow:0 0"
                   alternative
                   placeholder="특징 2"
@@ -42,7 +42,7 @@
                 >
                 </base-input>
                 <base-input
-                  class="col-lg-4 bg-secondary"
+                  class="col-lg-4 bg-secondary my-1"
                   style="box-shadow:0 0"
                   alternative
                   placeholder="특징 3"
@@ -50,8 +50,9 @@
                 >
                 </base-input>
               </div>
-              <h6 class="mt-2">음악</h6>
+              <h6 class="mt-4">음악</h6>
               <base-input
+                class="mb-3"
                 type="file"
                 alternative
                 placeholder="music"
