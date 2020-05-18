@@ -122,6 +122,11 @@ export default {
           music_tag_2 : this.tag_2,
           music_tag_3 : this.tag_3
         });
+        if(writeDbResult.data.result!==0){
+          const err = new Error("error while set data to db");
+          err.response.data.message = "error while set data to db";
+        }
+          this.$router.push({path:"/beat/list"})
       } catch (err) {
         if (err.response !== undefined) {
           alert(err.response.data.message);

@@ -12,13 +12,18 @@
         <badge type="warning" rounded>product</badge>
         <badge type="warning" rounded>launch</badge>
       </div>
-      <base-button tag="a" href="#" type="warning" class="mt-4"
-        >Learn more</base-button>
+      <base-button tag="a" href="/" type="warning" class="mt-4"
+        >들어보기</base-button>
     </card>
   </div>
 </template>
 <script>
 export default {
-    
+  
 }
 </script>
+<style scoped>
+router-link{
+  display:block;  
+}
+</style>

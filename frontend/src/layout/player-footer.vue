@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import test from '../assets/rock.mp3';
 import WaveSurfer from 'wavesurfer.js';
 import CursorPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.cursor.min.js'
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js'
@@ -77,7 +76,7 @@ export default {
                 this.time = this.wavesurfer.getCurrentTime()
             }, 1);
         });
-        this.wavesurfer.load(test);
+        this.wavesurfer.load("https://biphop-audio.s3.ap-northeast-2.amazonaws.com/beat/07602ff0-9902-11ea-8aa6-0d23e3a959ac.mpeg");
     },
     filters: {
         round(number) {

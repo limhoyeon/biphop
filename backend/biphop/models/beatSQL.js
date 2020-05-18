@@ -8,6 +8,6 @@ exports.beatWrite=({user_id,music_title,music_path,music_description,music_tag_1
     if(user_id===undefined || music_title===undefined || music_path === undefined || music_description ===undefined || music_tag_1 === undefined ||music_tag_2===undefined || music_tag_3 === undefined){
         throw "one of values is undefined"    
     }
-    return `INSERT INTO beat(user_id,music_title,music_path,music_description,music_tag_1,music_tag_2,music_tag_3,updated_dt,created_dt) \
-            VALUES('${user_id}','${music_title}','${music_path}','${music_description}','${music_tag_1}','${music_tag_2}','${music_tag_3}',current_timestamp,current_timestamp)`
+    return `INSERT INTO beat(user_id,music_title,music_path,music_description,music_tag_1,music_tag_2,music_tag_3,updated_dt,created_dt)\
+    VALUES('${user_id}','${music_title}','${music_path}','${music_description}','${music_tag_1}','${music_tag_2}','${music_tag_3}',current_timestamp,current_timestamp)`
 }
