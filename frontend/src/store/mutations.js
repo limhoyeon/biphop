@@ -1,4 +1,4 @@
-import * as types from './mutation_types'
+import * as types from './mutation_type'
 
 export default {
   [types.USER_ID] (state, userId) {
@@ -7,7 +7,7 @@ export default {
   [types.IS_AUTH] (state, isAuth) {
     state.isAuth = isAuth
   },
-  [types.token](state,token){
-      state.token=token
+  [types.TOKEN](state,token){
+      state.token= token
   }
 }

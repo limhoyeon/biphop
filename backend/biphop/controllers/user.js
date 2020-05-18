@@ -34,15 +34,14 @@ exports.signup = async (req, res, next) => {
 exports.login = async (req, res, next) => {
     const user_id = req.body.user_id;
     const password = req.body.password;
-    console.log(user_id, password)
     try{
-        const dbPassword = await user.userPassFindById({ user_id })
-        if (dbPassword === "") {
+        const dbInfo = await user.userFindById({ user_id })
+        if (dbInfo['password'] === "") {
             const error = new Error("user ot signed");
             error.statusCode = 401;
             throw error
         }
-        const isEqual = await bcrypt.compare(password, dbPassword);
+        const isEqual = await bcrypt.compare(password, dbInfo['password']);
         if (!isEqual) {
             const error = new Error('Wrong password!');
             error.statusCode = 401;
@@ -58,7 +57,6 @@ exports.login = async (req, res, next) => {
       res.status(200).json({ token: token, user_id: user_id });
     }
     catch(err){
-        console.log(err)
         if(!err.statusCode){
             err.statusCode = 500;
         }

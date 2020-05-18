@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 // const multer = require('multer');
 
 const userRoutes = require('./routes/user');
-
+const beatRoutes = require('./routes/beat')
 const app = express();
 
 // const fileStorage = multer.diskStorage({
@@ -48,8 +48,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/user', userRoutes);
-
+app.use('/api/beat', beatRoutes);
 app.use((error, req, res, next) => {
+  console.log(error)
   const status = error.statusCode || 500;
   const message = error.message;
   const data = error.data;
