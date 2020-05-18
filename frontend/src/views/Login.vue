@@ -39,11 +39,13 @@
                             </div>
                             <form role="form">
                                 <base-input alternative
+                                            v-model="user_id"
                                             class="mb-3"
-                                            placeholder="Email"
-                                            addon-left-icon="ni ni-email-83">
+                                            placeholder="Id"
+                                            addon-left-icon="ni ni-hat-3">
                                 </base-input>
                                 <base-input alternative
+                                            v-model="password"
                                             type="password"
                                             placeholder="Password"
                                             addon-left-icon="ni ni-lock-circle-open">
@@ -51,7 +53,7 @@
                                 <base-checkbox>
                                     Remember me
                                 </base-checkbox>
-                                <div class="text-center">
+                                <div class="text-center"  @click="submitHandler">
                                     <base-button type="primary" class="my-4">Sign In</base-button>
                                 </div>
                             </form>
@@ -75,7 +77,29 @@
     </section>
 </template>
 <script>
-export default {};
+import api from "@/utils/api.js"
+export default {
+    data(){
+        return {
+            user_id:"",
+            password : ""
+        }
+    },
+    methods:{
+        submitHandler(){
+            api.post("/api/user/login",{
+                user_id : this.user_id,
+                password : this.password
+            })
+            .then(res=>{
+                console.log(res)
+            })
+            .catch(err=>{
+                console.log(err.response)
+            })
+        }
+    }
+};
 </script>
 <style>
 </style>
