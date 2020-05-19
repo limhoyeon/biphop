@@ -4,7 +4,6 @@
       <router-link slot="brand" class="navbar-brand mr-lg-5 brand-hover" to="/">
         <h1 class="text-center text-white m-auto display-3">BIPHOP</h1>
       </router-link>
-
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
         <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
           <a
@@ -54,24 +53,6 @@
             </router-link>
           </div>
         </base-dropdown>
-        <base-dropdown tag="li" class="nav-item">
-          <a
-            slot="title"
-            href="#"
-            class="nav-link"
-            data-toggle="dropdown"
-            role="button"
-          >
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Examples</span>
-          </a>
-          <router-link to="/landing" class="dropdown-item">Landing</router-link>
-          <router-link to="/profile" class="dropdown-item">Profile</router-link>
-          <router-link to="/login" class="dropdown-item">Login</router-link>
-          <router-link to="/register" class="dropdown-item"
-            >Register</router-link
-          >
-        </base-dropdown>
       </ul>
       <ul class="navbar-nav align-items-lg-center ml-lg-auto navbar-nav-hover">
         <li class="nav-item">
@@ -81,7 +62,7 @@
             target="_blank"
             rel="noopener"
             data-toggle="tooltip"
-            title="Follow us on Instagram"
+            title="chatting-list"
           >
             <i class="ni ni-email-83 bg-gradient-warining"></i>
             <span class="nav-link-inner--text d-lg-none"></span>

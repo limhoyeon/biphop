@@ -47,6 +47,10 @@ router.post(
     ],
     beatController.getS3Path
 )
+router.get(
+    '/getlatestlist',
+    beatController.getLatestList
+)
 // router.get('/status', isAuth, authController.getUserStatus);
 
 // router.patch(

@@ -2,11 +2,10 @@ import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./layout/AppHeader";
 import AppFooter from "./layout/AppFooter";
-import Components from "./views/Components.vue";
-import Landing from "./views/Landing.vue";
+import Home from "./views/home/home.vue";
 import UserLogin from "./views/user/login/user-login.vue";
 import UserRegister from "./views/user/register/user-register.vue";
-import Profile from "./views/Profile.vue";
+import UserProfile from "./views/user/profile/user-profile.vue";
 import BeatList from "./views/beat/list/beat-list.vue"
 import BeatWrite from "./views/beat/write/beat-write.vue"
 import BeatDetail from "./views/beat/detail/beat-detail.vue"
@@ -51,20 +50,10 @@ export default new Router({
     },
     {
       path: "/",
-      name: "components",
+      name: "home",
       components: {
         header: AppHeader,
-        default: Components,
-        footer: AppFooter,
-        player:PlayFooter
-      }
-    },
-    {
-      path: "/landing",
-      name: "landing",
-      components: {
-        header: AppHeader,
-        default: Landing,
+        default: Home,
         footer: AppFooter,
         player:PlayFooter
       }
@@ -90,11 +79,11 @@ export default new Router({
       }
     },
     {
-      path: "/profile",
-      name: "profile",
+      path: "/user/profile",
+      name: "userprofile",
       components: {
         header: AppHeader,
-        default: Profile,
+        default: UserProfile,
         footer: AppFooter,
         player:PlayFooter
       }

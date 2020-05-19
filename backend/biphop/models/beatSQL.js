@@ -11,3 +11,11 @@ exports.beatWrite=({user_id,music_title,music_path,music_description,music_tag_1
     return `INSERT INTO beat(user_id,music_title,music_path,music_description,music_tag_1,music_tag_2,music_tag_3,updated_dt,created_dt)\
     VALUES('${user_id}','${music_title}','${music_path}','${music_description}','${music_tag_1}','${music_tag_2}','${music_tag_3}',current_timestamp,current_timestamp)`
 }
+exports.beatLatestListForRedis=()=>{
+    return `select beat.music_idx,beat.music_title,beat.music_path,beat.music_tag_1,beat.music_tag_2,beat.music_tag_3,ifnull(user.nickname,'unsigneduser') as nickname,beat.created_dt as created_dt\
+    FROM beat\
+    LEFT JOIN user\
+    on beat.user_id=user.user_id\
+    ORDER BY beat.created_dt DESC
+    LIMIT 0,12`
+}

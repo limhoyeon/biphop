@@ -12,8 +12,9 @@ exports.write = async (req, res, next) => {
             music_tag_1 : req.body.music_tag_1,
             music_tag_2 : req.body.music_tag_2,
             music_tag_3 : req.body.music_tag_3})
-        console.log(result)
-        res.send({"result" : 0})
+        if(result===true){
+            res.send({"result" : 0})
+        }
     }catch(error){
         next(error)
     }
@@ -45,5 +46,16 @@ exports.getS3Path = async (req, res, next) => {
             error.statusCode=500
         }
         next(error)
+    }
+}
+
+exports.getLatestList = async(req,res,next)=>{
+    try{
+        const result=await beat.beatLatestList()
+        res.send(result)
+    }
+    catch(err){
+        console.log(err)
+        next(err)
     }
 }

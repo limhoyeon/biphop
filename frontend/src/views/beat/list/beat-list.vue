@@ -49,21 +49,6 @@
               <beat-card-component></beat-card-component>
               <beat-card-component></beat-card-component>
               <beat-card-component></beat-card-component>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center py-3">
-          <div class="col-lg-12">
-            <div class="row row-grid">
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center py-3">
-          <div class="col-lg-12">
-            <div class="row row-grid">
               <beat-card-component></beat-card-component>
               <beat-card-component></beat-card-component>
               <beat-card-component></beat-card-component>
