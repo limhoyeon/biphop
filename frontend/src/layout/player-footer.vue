@@ -7,7 +7,7 @@
                 <base-button v-if="isStart" @click="pauseHandler" size="sm" class="bg-gradient-primary" type="second" icon="ni ni-button-pause"></base-button>
                 <base-button v-else @click="startHandler" size="sm" class="bg-gradient-primary" type="success" icon="ni ni-button-play"></base-button>
                 <base-button class="bg-gradient-warning" size="sm" type="success" icon="ni ni-bold-right"></base-button>
-                <base-button class="bg-dark" size="sm" type="success" icon="fa fa-volume-up"></base-button>
+                <base-button class="bg-dark" @click="volumeController" size="sm" type="success" icon="fa fa-volume-up"></base-button>
                 <span class="px-3">{{time | round}}</span>
             </div>
         </div>
@@ -17,12 +17,12 @@
         <div class="col-4 p-0 text-left" style="display:flex;align-items:center">
             <span class="px-3">{{totalTime | round}}</span>
             <h1 class="display-4 m-0" style="width:14rem;display:inline;font-size:0.8rem;color:pink;white-space: nowrap;text-overflow: ellipsis; overflow: hidden;
-">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
-            <base-button class="bg-gradient-danger mx-3" size="sm" type="success" icon="ni ni-bullet-list-67"></base-button>
+">title - {{getNowPlayInfo.music_title}}<br>artist - {{getNowPlayInfo.nickname}}</h1>
+            <base-button @click="listController" class="bg-gradient-danger mx-3" size="sm" type="success" icon="ni ni-bullet-list-67"></base-button>
         </div>
     </div>
-    <player-footer-list-component></player-footer-list-component>
-    <player-footer-volume-component></player-footer-volume-component>
+    <player-footer-list-component v-if="listShow" @click="listController"></player-footer-list-component>
+    <player-footer-volume-component v-if="volumeShow"></player-footer-volume-component>
 </div>
 </template>
 
@@ -32,18 +32,24 @@ import CursorPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.cursor.min.js'
 import RegionsPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.regions.min.js'
 import playerFooterListComponent from './components/player-footer-list.vue'
 import playerFooterVolumeComponent from './components/player-footer-volume.vue'
+import {mapActions,mapGetters} from 'vuex'
 export default {
     data() {
         return {
             isStart: false,
             time: 0,
             totalTime: 0,
-            wavesurfer: null
+            wavesurfer: null,
+            volumeShow : false,
+            listShow : false
         }
     },
     components:{
         playerFooterListComponent,
         playerFooterVolumeComponent
+    },
+    computed:{
+        ...mapGetters(['getNowPlayInfo'])
     },
     mounted() {
         this.wavesurfer = WaveSurfer.create({
@@ -76,7 +82,7 @@ export default {
                 this.time = this.wavesurfer.getCurrentTime()
             }, 1);
         });
-        this.wavesurfer.load("https://biphop-audio.s3.ap-northeast-2.amazonaws.com/beat/07602ff0-9902-11ea-8aa6-0d23e3a959ac.mpeg");
+        this.setWaveSurferProcess(this.wavesurfer);
     },
     filters: {
         round(number) {
@@ -88,11 +94,15 @@ export default {
             return this.wavesurfer.getDuration();
         },
         startHandler() {
-            this.currentTimeEvent = setInterval(() => {
-                this.time = this.wavesurfer.getCurrentTime()
-            }, 1000);
             this.wavesurfer.play();
             this.isStart = true;
+            this.currentTimeEvent = setInterval(() => {
+                this.time = this.wavesurfer.getCurrentTime()
+                if(this.totalTime-this.time<0.1){
+                    this.isStart=false;
+                    this.wavesurfer.pause();
+                }
+            }, 1000);
         },
         pauseHandler() {
             this.wavesurfer.pause();
@@ -102,7 +112,14 @@ export default {
         stopHandler() {
             this.wavesurfer.stop();
             this.isStart = false;
-        }
+        },
+        listController(){
+            this.listShow=!this.listShow;
+        },
+        volumeController(){
+            this.volumeShow=!this.volumeShow;
+        },
+        ...mapActions(["setWaveSurferProcess","initPlaylistProcess"])
     }
 }
 </script>

@@ -34,24 +34,28 @@
     </div>
     <section class="section section-lg pt-lg-0 mt--200">
       <div class="container">
-        <div class="row justify-content-center" style="margin-top:15rem; margin-bottom:5rem">
-            <div class="col-lg">
-                <div class="row row-grid">
-                    <div class="col-lg-12 text-center v">
-                        <h1 class="text-warning" style="font-size:4rem">새로 추가된 음악</h1>
-                    </div>
-                </div>
+        <div
+          class="row justify-content-center"
+          style="margin-top:15rem; margin-bottom:5rem"
+        >
+          <div class="col-lg">
+            <div class="row row-grid">
+              <div class="col-lg-12 text-center v">
+                <h1 class="text-warning" style="font-size:4rem">
+                  새로 추가된 음악
+                </h1>
+              </div>
             </div>
+          </div>
         </div>
         <div class="row justify-content-center py-3">
           <div class="col-lg-12">
             <div class="row row-grid">
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
-              <beat-card-component></beat-card-component>
+              <beat-card-component
+                v-for="item in beatList"
+                :key="item.music_idx"
+                :beatCardData="item"
+              ></beat-card-component>
             </div>
           </div>
         </div>
@@ -62,10 +66,28 @@
 
 <script>
 import beatCardComponent from "./components/beat-card.vue";
-
+import api from "@/utils/api";
 export default {
   components: {
     beatCardComponent
+  },
+  data(){
+    return{
+      beatList:[]
+    }
+  },
+  created(){
+    api.get("/api/beat/getlatestlist")
+     .then((response)=>{
+      response.data.forEach((item)=>{
+        this.beatList.push(item)
+      })
+      
+    })
+    .catch( (err)=>{
+      console.log(err)
+      alert(err)
+    })
   }
 };
 </script>

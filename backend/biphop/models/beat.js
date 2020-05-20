@@ -45,6 +45,11 @@ exports.beatLatestList = async ( )=>{
     return retList
 }
 
+exports.getBeatDetail = async ({music_idx})=>{
+    const result = await query(sql.getBeatDetail({music_idx}))
+    return result
+}
+
 const redisClientLrangePromise = (targetList, start, end) => {
     return new Promise((resolve, reject) => {
         redisClient.lrange(targetList,start,end,(err,msg)=>{

@@ -46,10 +46,14 @@ router.post(
         .escape()
     ],
     beatController.getS3Path
-)
+);
 router.get(
     '/getlatestlist',
     beatController.getLatestList
+);
+router.get(
+    '/getBeatDetail',
+    beatController.getBeatDetail
 )
 // router.get('/status', isAuth, authController.getUserStatus);
 

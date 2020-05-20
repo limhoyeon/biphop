@@ -39,7 +39,7 @@ export default new Router({
       }
     },
     {
-      path:"/beat/detail",
+      path:"/beat/detail/:music_idx",
       name:"beatdetail",
       components:{
         header:AppHeader,

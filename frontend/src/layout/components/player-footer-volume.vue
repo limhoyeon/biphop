@@ -19,7 +19,7 @@
     position: fixed;
     bottom: 3.5rem;
     left: 2rem;
-    border: 5px solid# f1f1f1;
+    border: 5px solid #f1f1f1;
     z-index: 9999;
     border-radius:0.5rem;
 }

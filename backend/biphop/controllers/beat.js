@@ -55,7 +55,16 @@ exports.getLatestList = async(req,res,next)=>{
         res.send(result)
     }
     catch(err){
-        console.log(err)
+        next(err)
+    }
+}
+
+exports.getBeatDetail = async(req,res,next)=>{
+    try{
+        const result=await beat.getBeatDetail({music_idx : req.query.music_idx})
+        res.send(result[0][0])
+    }
+    catch(err){
         next(err)
     }
 }

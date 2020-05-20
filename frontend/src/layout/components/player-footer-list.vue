@@ -2,17 +2,9 @@
 <div class="list-container bg-gradient-warning">
     <h6 class="display-4">Play-List</h6>
     <div class="list-item-container">
-        <div class="list-item">
-            <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
-        </div>
-        <div class="list-item">
-            <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
-        </div>
-        <div class="list-item">
-            <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
-        </div>
-        <div class="list-item">
-            <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
+        <div v-for="(item,index) in getPlaylist" :key="index" class="list-item" :class='{isSelected : "active",isSelected : "bg-gradient-primary"}'
+        >
+            <h1 class="display-4">{{item.music_title}}<br>{{item.nickname}}</h1>
         </div>
         <div class="list-item active bg-gradient-primary">
             <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
@@ -21,8 +13,28 @@
 </div>
 </template>
 
-<script scoped>
+<script>
+import {mapGetters,mapActions} from "vuex"
+export default{
+    data(){
+        return{
+            selected:-1
+        }
+    },
+    computed : {
+        ...mapGetters(['getPlaylist','getNowPlay'])
+    },
+    watch:{
+        getNowPlay(prev,next){
+            this.selected=next;
+        }
+    },
+    methods:{
+        selectHandler(index){
 
+        }
+    }
+}
 </script>
 
 <style scoped>
@@ -37,9 +49,10 @@
     position: fixed;
     bottom: 4rem;
     right: 1rem;
-    border: 5px solid# f1f1f1;
+    border: 5px solid #f1f1f1;
     z-index: 9999;
     border-radius:1rem;
+    overflow-y:scroll
 }
 
 .list-container h6 {

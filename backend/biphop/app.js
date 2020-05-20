@@ -4,7 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const redisInit = require('./utils/redis-init')
 const userRoutes = require('./routes/user');
-const beatRoutes = require('./routes/beat')
+const beatRoutes = require('./routes/beat');
+const playlistRoutes = require('./routes/playlist')
 const app = express();
 
 try{
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 
 app.use('/api/user', userRoutes);
 app.use('/api/beat', beatRoutes);
+app.use('/api/playlist',playlistRoutes)
 app.use((error, req, res, next) => {
   console.log(error)
   const status = error.statusCode || 500;

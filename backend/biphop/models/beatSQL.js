@@ -19,3 +19,10 @@ exports.beatLatestListForRedis=()=>{
     ORDER BY beat.created_dt DESC
     LIMIT 0,12`
 }
+
+exports.getBeatDetail=({music_idx})=>{
+    if(music_idx===undefined){
+        throw "one of values is undefined"
+    }
+    return `SELECT * FROM beat WHERE music_idx='${music_idx}'`
+}
