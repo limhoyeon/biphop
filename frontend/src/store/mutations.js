@@ -23,5 +23,8 @@ export default {
   },
   [types.CLEARPLAYLIST](state){
     state.playlist=[]
+  },
+  [types.SETPLAYLIST](state,beats){
+    state.playlist=beats
   }
 }
