@@ -82,7 +82,6 @@ export default {
       response.data.forEach((item)=>{
         this.beatList.push(item)
       })
-      
     })
     .catch( (err)=>{
       console.log(err)

@@ -13,9 +13,9 @@
         <badge type="warning" rounded v-if="beatCardData.music_tag_3!==undefined">{{beatCardData.music_tag_3}}</badge>
       </div>
       <base-button tag="a" @click.native="listenHandler" type="warning" class="mt-4"
-        >들어 보기</base-button>
+        >playlist에 추가하기</base-button>
       <base-button tag="a" @click.native="detailHandler" type="warning" class="mt-4"
-        >설명 보기</base-button>
+        >설명</base-button>
     </card>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
   },
   methods:{
     detailHandler(){
-      this.$router.push({path:"/beat/detail/"+this.music_idx})
+      this.$router.push({path:"/beat/detail/"+this.beatCardData.music_idx})
     },
     listenHandler(){
       this.addPlaylistProcess(this.beatCardData);

@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
                                 <div class="card-profile-actions py-4 mt-lg-0">
-                                    <base-button type="info" size="sm" class="mr-4">Connect</base-button>
+                                    <base-button type="info" size="sm" class="mr-4">페이지준비중입니다..</base-button>
                                     <base-button type="default" size="sm" class="float-right">Message</base-button>
                                 </div>
                             </div>

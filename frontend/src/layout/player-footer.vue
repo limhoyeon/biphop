@@ -22,7 +22,7 @@
         </div>
     </div>
     <player-footer-list-component v-if="listShow" @click="listController"></player-footer-list-component>
-    <player-footer-volume-component v-if="volumeShow"></player-footer-volume-component>
+    <player-footer-volume-component :setVolumeHandler="setVolumeHandler" v-if="volumeShow"></player-footer-volume-component>
 </div>
 </template>
 
@@ -50,6 +50,11 @@ export default {
     },
     computed:{
         ...mapGetters(['getNowPlayInfo'])
+    },
+    watch:{
+        getNowPlayInfo(){
+            this.isStart = false;
+        }
     },
     mounted() {
         this.wavesurfer = WaveSurfer.create({
@@ -90,6 +95,9 @@ export default {
         }
     },
     methods: {
+        setVolumeHandler(val){
+            this.wavesurfer.setVolume(val/100);
+        },
         getTotalTime() {
             return this.wavesurfer.getDuration();
         },

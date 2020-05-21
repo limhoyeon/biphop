@@ -21,6 +21,7 @@
             class="border-0"
           >
             <template>
+              <!--
               <div class="text-muted text-center mb-3">
                 <small>Sign in with</small>
               </div>
@@ -34,7 +35,7 @@
                   <img slot="icon" src="img/icons/common/google.svg" />
                   Google
                 </base-button>
-              </div>
+              </div>-->
             </template>
             <template>
               <div class="text-center text-muted mb-4">
@@ -45,7 +46,7 @@
                   alternative
                   v-model="user_id"
                   class="mb-3"
-                  placeholder="id"
+                  placeholder="id : 영문숫자 혼용 6자 이상"
                   addon-left-icon="ni ni-hat-3"
                 >
                 </base-input>
@@ -53,7 +54,7 @@
                   alternative
                   v-model="nickname"
                   class="mb-3"
-                  placeholder="NickName"
+                  placeholder="nickname : 3자 이상"
                   addon-left-icon="fa fa-address-card"
                 >
                 </base-input>
@@ -70,7 +71,7 @@
                   alternative
                   v-model="tel"
                   class="mb-3"
-                  placeholder="Tel"
+                  placeholder="tel : -를 빼고 입력"
                   addon-left-icon="fa fa-phone"
                 >
                 </base-input>
@@ -78,7 +79,7 @@
                   alternative
                   v-model="password"
                   type="password"
-                  placeholder="Password"
+                  placeholder="password : 8자 이상 20자 이하"
                   addon-left-icon="ni ni-lock-circle-open"
                 >
                 </base-input>
@@ -136,6 +137,7 @@ export default {
         })
           .then(res => {
             if (res.data.result === 0) {
+              alert("가입에 성공했습니다! 로그인해주세요!")
               this.$router.push({ path: "/" });
             }
             else{

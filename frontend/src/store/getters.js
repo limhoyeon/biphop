@@ -1,19 +1,27 @@
 export default {
     getUserId: state => state.uid,
-    getIsAuth: state => state.isAuth,
+    getIsAuth: state => {return state.isAuth},
     getToken : state => state.token,
     getWaveSurferReferer : state => state.waveSurferReferer,
     getPlaylist:state => {return state.playlist},
     getNowPlay : state => {return state.nowPlay},
     getNowPlayInfo : state => {
-        if(state.nowPlay===-1){
+        if(state.isAuth==false){
             return {
-                music_title : "로그인 필요합니다.",
-                nickname : "음악을 듣기 위해서"
+                music_title : "음악을 듣기 위해서",
+                nickname : "로그인해주세요."
             }
         }
         else{
-            return state.playlist[state.nowPlay]
+            if(state.nowPlay!=-1){
+                return state.playlist[state.nowPlay]
+            }
+            else{
+                return {
+                    music_title : "플레이 리스트에서",
+                    nickname : "음악을 선택해주세요!"
+                }                
+            }
         }
     }
 }

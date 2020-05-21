@@ -24,5 +24,11 @@ exports.getBeatDetail=({music_idx})=>{
     if(music_idx===undefined){
         throw "one of values is undefined"
     }
-    return `SELECT * FROM beat WHERE music_idx='${music_idx}'`
+    return ` SELECT * FROM
+    (SELECT * FROM beat WHERE music_idx='${music_idx}') as beat_row
+    LEFT JOIN
+    (SELECT nickname,user_id FROM user) as user_table
+    ON
+    user_table.user_id=beat_row.user_id
+    `
 }

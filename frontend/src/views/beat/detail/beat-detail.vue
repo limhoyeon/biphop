@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-lg-9 p-0">
-        <h1>beatDetail.music_title</h1>
+        <h1>{{beatDetail.music_title}}</h1>
+        <h5>{{beatDetail.nickname}}</h5>
       </div>
     </div>
     <div class="row mt-3">
@@ -105,6 +106,7 @@
 
 <script>
 import api from "@/utils/api";
+import {mapActions} from "vuex";
 export default {
   data() {
     return {
@@ -125,9 +127,10 @@ export default {
       });
   },
   methods: {
-    listenHandler() {
-      console.log(this.beatDetail.music_idx);
-    }
+    listenHandler(){
+      this.addPlaylistProcess(this.beatDetail);
+    },
+    ...mapActions(['addPlaylistProcess'])
   }
 };
 </script>

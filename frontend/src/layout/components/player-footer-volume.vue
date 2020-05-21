@@ -5,10 +5,18 @@
 </template>
 <script>
     export default {
+      props:{
+        setVolumeHandler : Function
+      },
       data() {
         return {
               volumeValue: 50
         };
+      },
+      watch:{
+        volumeValue(val){
+          this.setVolumeHandler(val);
+        }
       }
     };
 </script>
@@ -22,8 +30,5 @@
     border: 5px solid #f1f1f1;
     z-index: 9999;
     border-radius:0.5rem;
-}
-.volume-container .volume-slider{
-    
 }
 </style>
