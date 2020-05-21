@@ -2,12 +2,12 @@
 <div class="list-container bg-gradient-warning">
     <h6 class="display-4">Play-List</h6>
     <div class="list-item-container">
-        <div v-for="(item,index) in getPlaylist" :key="index" class="list-item" :class='{isSelected : "active",isSelected : "bg-gradient-primary"}'
+        <div  v-for="(item,index) in getPlaylist" :key="index" 
+        class="list-item" 
+        @click="selectHandler(index)"
+        :class='[getNowPlay===index ? "active" : "",getNowPlay===index ? "bg-gradient-primary" : ""]'
         >
             <h1 class="display-4">{{item.music_title}}<br>{{item.nickname}}</h1>
-        </div>
-        <div class="list-item active bg-gradient-primary">
-            <h1 class="display-4">Title<br>이여요~~-가수이름이ssssssssssss용~</h1>
         </div>
     </div>
 </div>
@@ -16,23 +16,14 @@
 <script>
 import {mapGetters,mapActions} from "vuex"
 export default{
-    data(){
-        return{
-            selected:-1
-        }
-    },
     computed : {
         ...mapGetters(['getPlaylist','getNowPlay'])
     },
-    watch:{
-        getNowPlay(prev,next){
-            this.selected=next;
-        }
-    },
     methods:{
         selectHandler(index){
-
-        }
+            this.setNowPlayProcess(index);
+        },
+        ...mapActions(['setNowPlayProcess'])
     }
 }
 </script>
@@ -63,6 +54,8 @@ export default{
 }
 
 .list-item-container .list-item {
+    margin-top:0.1rem;
+    padding-bottom:0.1rem;
     padding-left:0.2rem;
     border-bottom: 1px solid white;
 

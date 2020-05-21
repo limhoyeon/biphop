@@ -4,3 +4,4 @@ export const TOKEN = 'TOKEN'
 export const SETWAVESURFER = "SETWAVESURFER"
 export const ADDPLAYLIST = "ADDPLAYLIST"
 export const SETNOWPLAY = "SETNOWPLAY"
+export const CLEARPLAYLIST="CLEARPLAYLIST"

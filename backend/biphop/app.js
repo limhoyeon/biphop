@@ -1,5 +1,5 @@
 const path = require('path');
-
+const morgan=require('morgan');
 const express = require('express');
 const bodyParser = require('body-parser');
 const redisInit = require('./utils/redis-init')
@@ -8,6 +8,7 @@ const beatRoutes = require('./routes/beat');
 const playlistRoutes = require('./routes/playlist')
 const app = express();
 
+app.use(morgan(":method :url :status :res[content-length] - :response-time ms"));
 try{
   redisInit()
 }

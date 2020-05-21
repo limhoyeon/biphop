@@ -13,10 +13,15 @@ export default {
     state.waveSurferReferer=waveSurferReferer
   },
   [types.ADDPLAYLIST](state,beat){
-    state.playlist.push(beat);
+    state.playlist.unshift(beat);
   },
   [types.SETNOWPLAY](state,idx){
     state.nowPlay=idx;
-    state.waveSurferReferer.load(state.playlist[state.nowPlay].music_path);
+    if(idx!==-1){
+      state.waveSurferReferer.load(state.playlist[state.nowPlay].music_path);
+    }
+  },
+  [types.CLEARPLAYLIST](state){
+    state.playlist=[]
   }
 }

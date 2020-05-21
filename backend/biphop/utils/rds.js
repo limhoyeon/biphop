@@ -16,13 +16,12 @@ const queryImplement = async (sql) => {
         transactionResult=await connection.beginTransaction()
         const queryResult=await connection.query(sql)
         await connection.commit()
+        await connection.release();
         return queryResult
     }
     catch(exception){
-        console.log("exception occured: ",exception)
-        if(transactionResult!==undefined){
-            await connection.rollback()
-        }
+        await connection.rollback()
+        await connection.release();
         throw exception
     }
 }

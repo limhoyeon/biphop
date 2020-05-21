@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
 export default {
   props:{
     beatCardData : Object
@@ -29,8 +30,9 @@ export default {
       this.$router.push({path:"/beat/detail/"+this.music_idx})
     },
     listenHandler(){
-      console.log(this.beatCardData.music_path)
-    }
+      this.addPlaylistProcess(this.beatCardData);
+    },
+    ...mapActions(['addPlaylistProcess'])
   }
 }
 </script>
