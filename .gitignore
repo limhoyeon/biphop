@@ -4,6 +4,7 @@ node_modules
 
 # local env files
 .env
+.env.aws
 .env.local
 .env.*.local
 # Log files

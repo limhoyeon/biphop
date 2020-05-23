@@ -7,6 +7,14 @@ const userRoutes = require('./routes/user');
 const beatRoutes = require('./routes/beat');
 const playlistRoutes = require('./routes/playlist')
 const app = express();
+const dotenv=require('dotenv')
+if (process.env.NODE_ENV === 'production') {
+  dotenv.config({ path: path.join(__dirname, '.env.aws') })
+} else if (process.env.NODE_ENV === 'develop') {
+  dotenv.config({ path: path.join(__dirname, '.env.local') })
+} else {
+  throw new Error('process.env.NODE_ENV를 설정하지 않았습니다!')
+}
 
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"));
 try{
