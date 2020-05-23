@@ -9,7 +9,7 @@ export default {
         if(state.isAuth==false){
             return {
                 music_title : "음악을 듣기 위해서",
-                nickname : "로그인해주세요."
+                nickname : "로그인해주세요!"
             }
         }
         else{
