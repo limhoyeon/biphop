@@ -15,7 +15,6 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   throw new Error('process.env.NODE_ENV를 설정하지 않았습니다!')
 }
-
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"));
 try{
   redisInit()

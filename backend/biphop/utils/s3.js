@@ -1,5 +1,6 @@
 const AWS = require('aws-sdk');
 var s3
+console.log("Hi?")
 AWS.config.getCredentials(function(err) {
   if (err) throw err;
   else {
