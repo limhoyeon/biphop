@@ -19,7 +19,7 @@ export default {
             else{
                 return {
                     music_title : "플레이 리스트에서",
-                    nickname : "음악을 선택해주세요!"
+                    nickname : "음악을 선택해주세요"
                 }                
             }
         }
