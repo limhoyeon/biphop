@@ -67,6 +67,6 @@ router.get(
 //       .isEmpty()
 //   ],s
 //   authController.updateUserStatus
-// );sssss
+// );sssssss
 
 module.exports = router;
