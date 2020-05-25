@@ -30,7 +30,7 @@
                   Github
                 </base-button>s
 
-                <base-button type="neutral">
+                <base-button type="neutral">`
                   <img slot="icon" src="img/icons/common/google.svg" />
                   Google
                 </base-button>
