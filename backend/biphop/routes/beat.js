@@ -59,7 +59,7 @@ router.get(
 
 // router.patch(
 //   '/status',
-//   isAuth,
+//   isAuth,s
 //   [
 //     body('status')
 //       .trim()
