@@ -55,18 +55,4 @@ router.get(
     '/getBeatDetail',
     beatController.getBeatDetail
 )
-// router.get('/status', isAuth, authController.getUserStatus);
-
-// router.patch(
-//   '/status',
-//   isAuth,s
-//   [
-//     body('status')ss
-//       .trim()
-//       .not()ss
-//       .isEmpty()
-//   ],s
-//   authController.updateUserStatus
-// );sssssss
-
 module.exports = router;
