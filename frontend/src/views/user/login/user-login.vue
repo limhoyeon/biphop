@@ -28,7 +28,7 @@
                 <base-button type="neutral">
                   <img slot="icon" src="img/icons/common/github.svg" />
                   Github
-                </base-button>
+                </base-button>s
 
                 <base-button type="neutral">
                   <img slot="icon" src="img/icons/common/google.svg" />
