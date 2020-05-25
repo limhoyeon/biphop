@@ -8,7 +8,7 @@
 * Copyright 2019 Creative Tim (https://www.creative-tim.com)
 * Licensed under MIT (https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md)
 
-* Coded by www.creative-tim.co
+* Coded by www.creative-tim.com
 
 =========================================================
 
