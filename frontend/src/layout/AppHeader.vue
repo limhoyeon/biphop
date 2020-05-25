@@ -31,7 +31,7 @@
                   Beat List
                 </h5>
                 <p class="description d-none d-md-inline-block mb-0">
-                  그들의 비트를 들어봐요!
+                  그들의 비트를 들어봐요!!
                 </p>
               </div>
             </router-link>
