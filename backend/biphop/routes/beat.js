@@ -65,7 +65,7 @@ router.get(
 //       .trim()
 //       .not()ss
 //       .isEmpty()
-//   ],
+//   ],s
 //   authController.updateUserStatus
 // );
 
