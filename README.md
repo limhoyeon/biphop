@@ -2,4 +2,4 @@
 
 https://www.notion.so/BIPHOP-fdebb1ff54364eb8be2019c20b05aecc
 
-감사합니다.
+감사합니다
