@@ -98,6 +98,7 @@
         </base-dropdown>
       </ul>
     </base-nav>
+    <chatBoxComponent />
   </header>
 </template>
 
@@ -106,11 +107,13 @@ import BaseNav from "@/components/BaseNav";
 import BaseDropdown from "@/components/BaseDropdown";
 import CloseButton from "@/components/CloseButton";
 import { mapActions } from "vuex";
+import chatBoxComponent from "@/layout/components/chat-box"
 export default {
   components: {
     BaseNav,
     CloseButton,
-    BaseDropdown
+    BaseDropdown,
+    chatBoxComponent
   },
   computed: {
     isAuth() {
