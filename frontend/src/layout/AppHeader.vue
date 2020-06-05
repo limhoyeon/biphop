@@ -58,13 +58,14 @@
         <li class="nav-item">
           <a
             class="nav-link nav-link-icon"
-            href="https://www.instagram.com/creativetimofficial"
+            @click="chatHandler"
             target="_blank"
             rel="noopener"
             data-toggle="tooltip"
             title="chatting-list"
           >
             <i class="ni ni-email-83 bg-gradient-warining"></i>
+            <span style="color:white; padding:0.3rem">CHATTING</span>
             <span class="nav-link-inner--text d-lg-none"></span>
           </a>
         </li>
@@ -98,7 +99,7 @@
         </base-dropdown>
       </ul>
     </base-nav>
-    <chatBoxComponent />
+    <chatBoxComponent v-if="isAuth" v-show="isChatVisible" />
   </header>
 </template>
 
@@ -109,6 +110,11 @@ import CloseButton from "@/components/CloseButton";
 import { mapActions } from "vuex";
 import chatBoxComponent from "@/layout/components/chat-box"
 export default {
+  data(){
+    return{
+      isChatVisible:false
+    }
+  },
   components: {
     BaseNav,
     CloseButton,
@@ -121,6 +127,14 @@ export default {
     }
   },
   methods: {
+    chatHandler(){
+      if(this.$store.getters.getUserId===""){
+        alert("로그인해주세요!");
+      }
+      else{
+        this.isChatVisible=!this.isChatVisible;
+      }
+    },
     logoutHandler() {
       console.log(this.isAuth);
       this.logoutProcess()
@@ -146,5 +160,8 @@ export default {
 <style scoped>
 .brand-hover.hover {
   background-color: black;
+}
+a{
+  cursor:pointer;
 }
 </style>

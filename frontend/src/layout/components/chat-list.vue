@@ -17,7 +17,19 @@
     </div>
 </div>
 </template>
-
+<script>
+export default{
+    created(){
+        this.socket.on('list',(data)=>{
+            console.log(data)
+        })
+        this.socket.emit('list');
+    },
+    props:{
+        socket:Object
+    }
+}
+</script>
 <style scoped>
 .chatter{
     padding : 1rem;

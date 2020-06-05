@@ -13,9 +13,8 @@ const state = {
   token : "",
   waveSurferReferer : {},
   playlist : [],
-  nowPlay : -1,
+  nowPlay : -1
 }
-
 export default new Vuex.Store({
   state,
   mutations,

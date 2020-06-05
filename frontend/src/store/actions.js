@@ -1,6 +1,5 @@
 import { USER_ID, IS_AUTH, TOKEN, SETWAVESURFER, ADDPLAYLIST, SETNOWPLAY , CLEARPLAYLIST, SETPLAYLIST } from './mutation_type'
 import api from '@/utils/api'
-
 let clearPlaylist = ({commit})=>{
   commit(CLEARPLAYLIST)
 }
