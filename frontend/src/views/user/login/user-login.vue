@@ -80,8 +80,8 @@ import api from "@/utils/api.js";
 export default {
   data() {
     return {
-      user_id: "",
-      password: ""
+      user_id: "guestid",
+      password: "guest12345!"
     };
   },
   computed: {

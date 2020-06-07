@@ -1,8 +1,8 @@
 <template>
-<div class="chat-box bg-gradient-primary">
+<div class="chat-box bg-gradient-primary" ref="chatDiv">
     <h1>chatting-box</h1>
-    <chatListComponent v-if="isListVisible" :socket="socket" />
-    <chatDetailComponent v-else/>
+    <chatListComponent v-if="isListVisible" :socket="socket" @chatroomClick="chatroomClickHandler"/>
+    <chatDetailComponent v-else :chatData="chatData" :socket="socket" @buttonclick="buttonClickHandler"/>
 </div>
 </template>
 <script>
@@ -17,6 +17,18 @@ export default{
         this.socket.emit("login", {
           user_id: this.user_id
         });
+        this.socket.on('join',(data)=>{
+            this.chatData=data;
+            this.$nextTick(()=>{
+                this.$refs.chatDiv.scrollTop=this.$refs.chatDiv.scrollHeight;
+            })
+        });
+        this.socket.on('chat',(data)=>{
+            this.chatData.chat.push(data)
+            this.$nextTick(()=>{
+                this.$refs.chatDiv.scrollTop=this.$refs.chatDiv.scrollHeight;
+            })
+        })
     },
     components:{
         chatDetailComponent,
@@ -24,19 +36,37 @@ export default{
     },
     data(){
         return{
-            isListVisible:true
+            isListVisible:true,
+            chatData : {
+                chat:[],
+                users:[]
+            }
         }
     },
     destroyed() {
         this.socket.disconnect()
     },
+    methods:{
+        chatroomClickHandler(chatroom_id){
+            this.socket.emit('join',chatroom_id);
+            this.isListVisible=false;
+        },
+        buttonClickHandler(){
+            this.socket.emit('leave');
+            this.isListVisible=true;
+        }
+    }
 }
 </script>
 <style scoped>
+h1{
+    color:white;
+    text-align:center;
+}
 .chat-box{
     padding: 1rem;
     height: 42rem;
-    width: 30%;
+    width: 24rem;
     position: fixed;
     top: 4rem;
     left: 2rem;
