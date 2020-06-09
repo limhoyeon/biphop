@@ -63,3 +63,11 @@ exports.login = async (req, res, next) => {
         next(err);
     }
 }
+exports.check = (req,res,next)=>{
+    try{
+        console.log(req.query)
+    }
+    catch(err){
+        console.log(err)
+    }
+}

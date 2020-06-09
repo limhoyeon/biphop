@@ -9,6 +9,8 @@
 </div>
 </template>
 <script>
+import api from "@/utils/api"
+import axios from 'axios'
 import chatNewPopup from "@/layout/components/chat-new-popup"
 export default{
     components:{
@@ -20,11 +22,14 @@ export default{
             chatList:[]
         }
     },
-    created(){
-        this.socket.on('list',(data)=>{
-            this.chatList=data;
+    mounted(){
+        api.get("/api/chat/chatlist")
+        .then(res=>{
+            this.chatList=res.data
         })
-        this.socket.emit('list');
+        .catch(err=>{
+            console.log(err)
+        })
     },
     props:{
         socket:Object

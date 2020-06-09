@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import api from '@/utils/api'
 export default {
     props:{
         socket:Object
@@ -22,8 +22,10 @@ export default {
             prompt("채팅방에 추가할 유저를 선택해주세요!");
         },
         sendHandler(){
-            axios.post("http://localhost:3000/chat/add",{
-                msg:"hello"
+            api.get("/api/user/check",{
+                params:{
+                    user_id:"guestid"
+                }
             })
         }
 

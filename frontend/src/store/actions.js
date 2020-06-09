@@ -38,20 +38,20 @@ let setPlaylist = ({commit} , data)=>{
 }
 export default {
   loginProcess(store, { user_id, token }) {
+    api.defaults.headers.common['Authorization'] = token
     setUserId(store, user_id)
     setToken(store, token)
     setIsAuth(store, true)
-    api.defaults.headers.common['Authorization'] = token
     initPlaylist(store);
     return store.getters.getIsAuth  // 로그인 결과를 리턴한다
   },
   logoutProcess(store) {
+    api.defaults.headers.common['Authorization'] = ""
     setUserId(store, "")
     setToken(store, "")
     setIsAuth(store, false)
     setNowPlay(store,-1)
     clearPlaylist(store)
-    api.defaults.headers.common['Authorization'] = ""
     return store.getters.getIsAuth
   },
   getAuthor(store) {
