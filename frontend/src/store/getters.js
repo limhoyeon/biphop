@@ -1,5 +1,5 @@
 export default {
-    getUserId: state => state.uid,
+    getUserId: state => state.userId,
     getIsAuth: state => {return state.isAuth},
     getToken : state => state.token,
     getWaveSurferReferer : state => state.waveSurferReferer,
