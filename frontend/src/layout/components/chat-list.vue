@@ -1,6 +1,6 @@
 <template>
-<div>
-    <base-button type="warning" icon="ni ni-bag-17">채팅추가하기</base-button>
+    <div>
+    <base-button @click="addClick" type="warning" icon="ni ni-bag-17">채팅추가하기</base-button>
     <div class="chatter" v-for="(item,index) in chatList" :key=index @click="clickHandler(item.chatroom_id)">
     <span v-for="(user,userIndex) in item.users" :key="userIndex">:: {{user}} ::</span>
     <span>의 채팅방</span>
@@ -18,23 +18,35 @@ export default{
     },
     data(){
         return{
-            isPopupVisible : true,
+            isPopupVisible : false,
             chatList:[]
         }
     },
-    mounted(){
-        api.get("/api/chat/chatlist")
-        .then(res=>{
-            this.chatList=res.data
+    created(){
+        this.getList()
+        this.socket.on("roomcreated",()=>{
+            this.forceupdate();
         })
-        .catch(err=>{
-            console.log(err)
-        })
+    },
+    beforeUpdate(){
+        this.getList()
     },
     props:{
         socket:Object
     },
     methods:{
+        getList(){
+            api.get("/api/chat/chatlist")
+            .then(res=>{
+                this.chatList=res.data
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        },
+        addClick(){
+            this.isPopupVisible=!this.isPopupVisible;
+        },
         clickHandler(chatroom_id){
             this.$emit('chatroomClick',chatroom_id);
         }

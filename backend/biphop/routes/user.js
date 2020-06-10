@@ -47,7 +47,6 @@ router.put(
     ],
     userController.signup
 );
-router.get('/check',userController.check);
 
 router.post('/login',
     [check('user_id')

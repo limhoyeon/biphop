@@ -29,33 +29,6 @@ io.on('connection', function(socket) {
       console.log(clients); // an array containing all connected socket ids
     });
   });
-  
-  //list를 받으면 현재 socket의 user_id에 맞게 list 반환
-  socket.on('list',function(){
-    console.log(this.user_id);
-    userModel.find({user_id : socket.user_id})
-    .then(res=>{
-        const temp=[]
-        res[0].chatroom.forEach((item)=>{
-            temp.push(mongoose.Types.ObjectId(item._id));
-        })
-        console.log(temp)
-        return chatModel.find({_id: {
-            $in : temp
-            }
-        })
-    })
-    .then(res=>{
-        const temp=[]
-        res.forEach((item)=>{
-            temp.push({users:item.user,chatroom_id:item._id})
-        })
-        socket.emit('list',temp);
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-  })
   //join event를 받으면 data를 반환
   socket.on('join', function(data) {
     socket.chatroom=data
@@ -95,6 +68,10 @@ io.on('connection', function(socket) {
     // io.to(id).emit('s2c chat', data);
   });
 
+  //만약 새로운 방이 생기면, 클라이언트들에게 메시지 전송하기
+  socket.on('roomcreated',function(data){
+    console.log(data)
+  })
   // force client disconnect from server
   socket.on('forceDisconnect', function() {
     socket.disconnect();

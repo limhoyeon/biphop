@@ -10,4 +10,13 @@ router.get(
     chatController.chatList
 );
 
+router.get(
+    "/check",
+    chatController.check
+)
+
+router.post(
+    "/room",
+    chatController.room
+)
 module.exports = router;

@@ -16,6 +16,11 @@ exports.userIsNotExist = async ({ user_id }) => {
     }
 }
 exports.userFindById = async ({ user_id }) => {
-    const result = await query(sql.userFindById({ user_id }))
-    return result[0][0] === undefined ? "" : result[0][0]
+    try{
+        const result = await query(sql.userFindById({ user_id }))
+        return result[0][0] === undefined ? "" : result[0][0]
+    }
+    catch(err){
+        throw(err);
+    }
 }

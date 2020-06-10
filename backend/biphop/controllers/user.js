@@ -2,7 +2,6 @@ const appRoot=require('app-root-path')
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const user = require(appRoot+'/models/user');
 
 exports.signup = async (req, res, next) => {
@@ -61,13 +60,5 @@ exports.login = async (req, res, next) => {
             err.statusCode = 500;
         }
         next(err);
-    }
-}
-exports.check = (req,res,next)=>{
-    try{
-        console.log(req.query)
-    }
-    catch(err){
-        console.log(err)
     }
 }

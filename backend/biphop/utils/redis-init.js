@@ -15,10 +15,8 @@ module.exports = ()=>{
                     console.log(err)
                     throw err
                 }
-                else{
-                    console.log(index,"st redis-init-from-db-complete")
-                }
             })
         })
+        console.log("12 cache maked", msg)
     })
 }
