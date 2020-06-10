@@ -59,9 +59,9 @@ export default {
                 .then(res=>{
                     if (res.data.resultCode===0 ){
                         alert("추가되었습니다.");
+                        this.socket.emit("roomMake",this.users)
                         this.users=[];
-                        this.$parent.forceupdate();
-                        this.socket.emit("roomcreated",this.users)
+                        this.$parent.getList();
                     }
                 })
             }

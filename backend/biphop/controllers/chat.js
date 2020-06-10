@@ -6,6 +6,7 @@ const user = require(appRoot+'/models/user');
 
 exports.chatList = async (req,res,next)=>{
     try{
+        console.log(req.user_id)
         const user_id=req.user_id
         const user_find=await chatUserModel.find({user_id})
         const temp_1=[]

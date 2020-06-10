@@ -5,7 +5,7 @@
     <span v-for="(user,userIndex) in item.users" :key="userIndex">:: {{user}} ::</span>
     <span>의 채팅방</span>
     </div>
-    <chatNewPopup v-if="isPopupVisible" />
+    <chatNewPopup v-if="isPopupVisible" :socket="socket" />
 </div>
 </template>
 <script>
@@ -24,12 +24,10 @@ export default{
     },
     created(){
         this.getList()
-        this.socket.on("roomcreated",()=>{
-            this.forceupdate();
+        this.socket.on("roomMake",(data)=>{
+            this.getList();
+            console.log("hello?");
         })
-    },
-    beforeUpdate(){
-        this.getList()
     },
     props:{
         socket:Object

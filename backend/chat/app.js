@@ -6,6 +6,7 @@ var io = require('socket.io')(server);
 var redis = require('socket.io-redis');
 var chatModel=require("./model/chat");
 var userModel=require("./model/user");
+var clientMap={}
 io.adapter(redis({ host: process.env.REDIS_HOST, port : process.env.REDIS_PORT , password:process.env.REDIS_PASSWORD }));
 
 var mongoose = require('mongoose');
@@ -24,7 +25,7 @@ io.on('connection', function(socket) {
   // id를 저장함.
   socket.on('login', function(data) {
     socket.user_id = data.user_id;
-    console.log(data)
+    clientMap[socket.user_id]=socket.id;
     io.of('/').adapter.clients((err, clients) => {
       console.log(clients); // an array containing all connected socket ids
     });
@@ -69,16 +70,22 @@ io.on('connection', function(socket) {
   });
 
   //만약 새로운 방이 생기면, 클라이언트들에게 메시지 전송하기
-  socket.on('roomcreated',function(data){
-    console.log(data)
+  socket.on('roomMake',function(data){
+    data=data.filter( (item)=> item !== socket.user_id )
+    data.forEach((item,index)=>{
+      socket.to(clientMap[item]).emit('roomMake',"hello im new room!!");
+    })
   })
   // force client disconnect from server
   socket.on('forceDisconnect', function() {
+    delete clientMap[socket.user_id];
     socket.disconnect();
   })
 
   socket.on('disconnect', function() {
+    delete clientMap[socket.user_id];
     console.log('user disconnected: ' + socket.name);
+
   });
 });
 
