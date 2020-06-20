@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "185288d13ed8e9d745bd279ea34667bf",
-    "url": "/img/brand/blue.png"
+    "revision": "c85c75275c0a0a617f9e5accc2700908",
+    "url": "/img/brand/creativetim-white-slim.png"
   },
   {
     "revision": "be997d5226b992ffad34816870c6b7aa",
@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.ce9a56ac.js"
   },
   {
-    "revision": "66618a418175ddf2ac8c47a241d327a8",
-    "url": "/img/theme/team-4-800x800.jpg"
-  },
-  {
     "revision": "54e3f3c414bd8e7234bae3ee3be950e5",
     "url": "/img/theme/team-3-800x800.jpg"
   },
   {
-    "revision": "ee45031d5c5f39fa8704",
-    "url": "/js/app.62441d5b.js"
+    "revision": "66618a418175ddf2ac8c47a241d327a8",
+    "url": "/img/theme/team-4-800x800.jpg"
   },
   {
-    "revision": "8a4b9e88cb2cf243ae887d9bad46709d",
+    "revision": "472db79550526b361258",
+    "url": "/js/app.fd461d3c.js"
+  },
+  {
+    "revision": "b2baae299fb502adc0eeb1904477bc56",
     "url": "/index.html"
   },
   {
@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/img/nucleo-icons.0b8a30b1.svg"
   },
   {
-    "revision": "fd4a34d026fb9e0f4867188d47b11ba8",
-    "url": "/img/theme/img-1-1200x1000.jpg"
-  },
-  {
     "revision": "7789b5bfa57722dd8916b1b9ff1b1d37",
     "url": "/img/theme/img-2-1200x1000.jpg"
+  },
+  {
+    "revision": "fd4a34d026fb9e0f4867188d47b11ba8",
+    "url": "/img/theme/img-1-1200x1000.jpg"
   },
   {
     "revision": "edc7106b21ec12e57022b2ebd534cd2d",
@@ -68,20 +68,20 @@ self.__precacheManifest = [
     "url": "/fonts/nucleo-icons.c1733565.eot"
   },
   {
-    "revision": "c85c75275c0a0a617f9e5accc2700908",
-    "url": "/img/brand/creativetim-white-slim.png"
+    "revision": "8e55eab46b5fcfc4a7a0b27cb07c8888",
+    "url": "/img/brand/github-white-slim.png"
   },
   {
     "revision": "594b1ee1d95ada356eaad078e9217932",
     "url": "/img/ill/ill-2.svg"
   },
   {
-    "revision": "8e55eab46b5fcfc4a7a0b27cb07c8888",
-    "url": "/img/brand/github-white-slim.png"
-  },
-  {
     "revision": "b9949387c6179e2dc4c675134a7b7935",
     "url": "/img/brand/favicon.png"
+  },
+  {
+    "revision": "185288d13ed8e9d745bd279ea34667bf",
+    "url": "/img/brand/blue.png"
   },
   {
     "revision": "f82ec6ba2dc4181db2af35c499462840",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/favicon.png"
   },
   {
-    "revision": "ee45031d5c5f39fa8704",
-    "url": "/css/app.0402756d.css"
+    "revision": "472db79550526b361258",
+    "url": "/css/app.5dc28451.css"
   }
 ];
