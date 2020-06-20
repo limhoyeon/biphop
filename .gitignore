@@ -22,4 +22,4 @@ dist
 api.*
 !frontend/dist/*
 !frontend/*
-s
+ss
