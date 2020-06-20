@@ -34,7 +34,7 @@ io.on('connection', function(socket) {
   });
   //join event를 받으면 data를 반환
   socket.on('join', function(data) {
-    socket.chatroom=data
+    socket.chatroom=data;
     socket.join(socket.chatroom);
     chatModel.findById(mongoose.Types.ObjectId(socket.chatroom))
     .then((res)=>{
