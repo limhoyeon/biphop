@@ -13,11 +13,10 @@ import chatListComponent from "@/layout/components/chat-list";
 export default{
     created(){
         this.user_id=this.$store.getters.getUserId;
-        this.socket = io('http://15.164.230.216/socket.io/');
+        this.socket = io('http://15.164.230.216:3000');
+        // this.socket = io('http://127.0.0.1:3000');
         console.log("socket status :",this.socket.connected)
-        this.socket.on('connect',(err,msg)=>{
-            console.log(err);
-            console.log(msg);
+        this.socket.on('connect',()=>{
             console.log(this.socket.connected)
         })
         this.socket.on('join',(data)=>{

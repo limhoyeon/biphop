@@ -15,12 +15,14 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("is connected");
-  server.listen(3000, function() {
+  server.listen(3000, function(data,err) {
+    console.log(data)
+    console.log(err)
     console.log('Socket IO server listening on port 3000');
   });
 });
 
-io.on('connection', function(socket) {
+io.on('connection', function(socket) {  
   // 접속한 클라이언트의 정보가 수신되면
   // id를 저장함.
   socket.on('login', function(data) {

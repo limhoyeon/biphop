@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "c85c75275c0a0a617f9e5accc2700908",
-    "url": "/img/brand/creativetim-white-slim.png"
+    "revision": "185288d13ed8e9d745bd279ea34667bf",
+    "url": "/img/brand/blue.png"
   },
   {
     "revision": "be997d5226b992ffad34816870c6b7aa",
@@ -20,11 +20,11 @@ self.__precacheManifest = [
     "url": "/img/theme/team-4-800x800.jpg"
   },
   {
-    "revision": "472db79550526b361258",
-    "url": "/js/app.fd461d3c.js"
+    "revision": "c25bfbcee45c779eb28f",
+    "url": "/js/app.77cae8a5.js"
   },
   {
-    "revision": "b2baae299fb502adc0eeb1904477bc56",
+    "revision": "292c9ee037c70eaf19836585d260cc2d",
     "url": "/index.html"
   },
   {
@@ -36,12 +36,12 @@ self.__precacheManifest = [
     "url": "/img/nucleo-icons.0b8a30b1.svg"
   },
   {
-    "revision": "7789b5bfa57722dd8916b1b9ff1b1d37",
-    "url": "/img/theme/img-2-1200x1000.jpg"
-  },
-  {
     "revision": "fd4a34d026fb9e0f4867188d47b11ba8",
     "url": "/img/theme/img-1-1200x1000.jpg"
+  },
+  {
+    "revision": "7789b5bfa57722dd8916b1b9ff1b1d37",
+    "url": "/img/theme/img-2-1200x1000.jpg"
   },
   {
     "revision": "edc7106b21ec12e57022b2ebd534cd2d",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/img/fontawesome-webfont.912ec66d.svg"
   },
   {
-    "revision": "c1733565b32b585676302d4233c39da8",
-    "url": "/fonts/nucleo-icons.c1733565.eot"
+    "revision": "f82ec6ba2dc4181db2af35c499462840",
+    "url": "/fonts/nucleo-icons.f82ec6ba.ttf"
   },
   {
     "revision": "8e55eab46b5fcfc4a7a0b27cb07c8888",
@@ -76,16 +76,16 @@ self.__precacheManifest = [
     "url": "/img/ill/ill-2.svg"
   },
   {
+    "revision": "c85c75275c0a0a617f9e5accc2700908",
+    "url": "/img/brand/creativetim-white-slim.png"
+  },
+  {
     "revision": "b9949387c6179e2dc4c675134a7b7935",
     "url": "/img/brand/favicon.png"
   },
   {
-    "revision": "185288d13ed8e9d745bd279ea34667bf",
-    "url": "/img/brand/blue.png"
-  },
-  {
-    "revision": "f82ec6ba2dc4181db2af35c499462840",
-    "url": "/fonts/nucleo-icons.f82ec6ba.ttf"
+    "revision": "c1733565b32b585676302d4233c39da8",
+    "url": "/fonts/nucleo-icons.c1733565.eot"
   },
   {
     "revision": "426439788ec5ba772cdf94057f6f4659",
@@ -116,7 +116,7 @@ self.__precacheManifest = [
     "url": "/favicon.png"
   },
   {
-    "revision": "472db79550526b361258",
-    "url": "/css/app.5dc28451.css"
+    "revision": "c25bfbcee45c779eb28f",
+    "url": "/css/app.a71101ef.css"
   }
 ];
