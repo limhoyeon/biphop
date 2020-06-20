@@ -1,7 +1,7 @@
 require('dotenv').config();
 var app = require('express')();
 var server = require('http').createServer(app);
-// http server를 socket.io server로 upgrade한다
+// http server를 socket.io server로 upgrade한다요
 var io = require('socket.io')(server);
 var redis = require('socket.io-redis');
 var chatModel=require("./model/chat");
