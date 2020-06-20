@@ -17,6 +17,12 @@ export default{
         this.socket.emit("login", {
           user_id: this.user_id
         });
+        console.log(this.socket.connected)
+        this.socket.on('connect',(err,msg)=>{
+            console.log(err);
+            console.log(msg);
+            console.log(this.socket.connected)
+        })
         this.socket.on('join',(data)=>{
             this.chatData=data;
             this.$nextTick(()=>{
